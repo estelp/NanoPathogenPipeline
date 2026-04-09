@@ -1,0 +1,16 @@
+import os
+import yaml
+from datetime import datetime
+
+# Load config
+with open("config/config.yaml") as f:
+    config = yaml.safe_load(f)
+
+# Fix run folder once for the entire workflow
+timestamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+RUN_DIR = os.path.join(config['output_parent'], f"run_{timestamp}")
+os.makedirs(RUN_DIR, exist_ok=True)
+print(f"Run directory: {RUN_DIR}")
+
+# Include modular rules
+include: "workflow/rules/qc.smk"

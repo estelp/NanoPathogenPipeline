@@ -1,0 +1,11 @@
+name: qc
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.11
+  - nanoplot
+  - nanofilt
+  - multiqc
+  - matplotlib
+  - pandas
